@@ -36,12 +36,6 @@ export const microwaveMacAndCheesePostDto: PostDto = {
   author: "John Doe",
 };
 
-export const microwaveRecipiesPostsDto = [
-  fiveMinuteMicrowaveMugCakePostDto,
-  microwaveScrambledEggsPostDto,
-  microwaveMacAndCheesePostDto,
-];
-
 export const costillitasLekuePostDto: PostDto = {
   _id: "123abc",
   publishDate: "2025-04-27T12:00:00Z",
@@ -54,3 +48,88 @@ export const costillitasLekuePostDto: PostDto = {
     "Close-up of pork ribs with green pepper and spring garlic in the Lekué pot",
   tags: ["lekue", "microwave"],
 };
+
+export const microwaveBakedPotatoPostDto: PostDto = {
+  _id: "4",
+  title: "Microwave Baked Potato",
+  imageUrl: "https://example.com/baked-potato.jpg",
+  imageAlt: "A fluffy baked potato split open with butter melting inside",
+  tags: ["side dish", "vegetarian", "microwave"],
+  content:
+    "Pierce a potato several times with a fork. Microwave on high for 5-6 minutes, flipping halfway through. Add toppings as desired.",
+  publishDate: "2025-04-28T18:00:00Z",
+  author: "Jane Smith",
+};
+
+export const microwaveSteamedBroccoliPostDto: PostDto = {
+  _id: "5",
+  title: "Microwave Steamed Broccoli",
+  imageUrl: "https://example.com/steamed-broccoli.jpg",
+  imageAlt: "Bright green steamed broccoli in a bowl",
+  tags: ["vegetable", "healthy", "microwave"],
+  content:
+    "Place broccoli florets in a microwave-safe bowl with a splash of water. Cover and microwave for 3-4 minutes. Season to taste.",
+  publishDate: "2025-04-28T19:00:00Z",
+  author: "Jane Smith",
+};
+
+export const microwaveOmelettePostDto: PostDto = {
+  _id: "6",
+  title: "Microwave Omelette in a Mug",
+  imageUrl: "https://example.com/mug-omelette.jpg",
+  imageAlt: "A fluffy omelette in a mug with diced vegetables",
+  tags: ["breakfast", "protein", "microwave"],
+  content:
+    "Beat two eggs with chopped veggies, cheese, and seasoning in a mug. Microwave for 1-2 minutes until set.",
+  publishDate: "2025-04-29T07:30:00Z",
+  author: "John Doe",
+};
+
+export const microwaveCinnamonApplesPostDto: PostDto = {
+  _id: "7",
+  title: "Microwave Cinnamon Apples",
+  imageUrl: "https://example.com/cinnamon-apples.jpg",
+  imageAlt: "Warm sliced apples with cinnamon in a bowl",
+  tags: ["dessert", "healthy", "microwave"],
+  content:
+    "Slice apples and toss with cinnamon and a bit of sugar. Microwave for 2-3 minutes until tender. Great as a snack or dessert!",
+  publishDate: "2025-04-28T15:00:00Z",
+  author: "Jane Smith",
+};
+
+export const microwaveQuesadillaPostDto: PostDto = {
+  _id: "8",
+  title: "Microwave Quesadilla",
+  imageUrl: "https://example.com/quesadilla.jpg",
+  imageAlt: "Cheesy quesadilla cut into wedges on a plate",
+  tags: ["lunch", "snack", "microwave"],
+  content:
+    "Place cheese and fillings between two tortillas. Microwave for 1-2 minutes, then slice and enjoy with salsa.",
+  publishDate: "2025-04-26T11:00:00Z",
+  author: "John Doe",
+};
+
+export const microwaveRiceBowlPostDto: PostDto = {
+  _id: "9",
+  title: "Microwave Rice Bowl",
+  imageUrl: "https://example.com/rice-bowl.jpg",
+  imageAlt: "A rice bowl with veggies and sauce on top",
+  tags: ["dinner", "vegetarian", "microwave"],
+  content:
+    "Mix cooked rice with veggies and your favorite sauce in a bowl. Microwave for 1-2 minutes until heated through.",
+  publishDate: "2025-04-29T12:00:00Z",
+  author: "Jane Smith",
+};
+
+export const microwaveRecipiesPostsDto = [
+  fiveMinuteMicrowaveMugCakePostDto,
+  microwaveScrambledEggsPostDto,
+  microwaveMacAndCheesePostDto,
+  costillitasLekuePostDto,
+  microwaveBakedPotatoPostDto,
+  microwaveSteamedBroccoliPostDto,
+  microwaveOmelettePostDto,
+  microwaveCinnamonApplesPostDto,
+  microwaveQuesadillaPostDto,
+  microwaveRiceBowlPostDto,
+];
