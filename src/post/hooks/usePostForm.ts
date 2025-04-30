@@ -41,7 +41,7 @@ const usePostForm = (): UsePostForm => {
   };
 
   const addTag = (): void => {
-    const trimmedTag = tag.replace(" ", "");
+    const trimmedTag = tag.replaceAll(" ", "");
 
     if (postFormData.tags.length === 3) {
       setWarning(true);
@@ -73,7 +73,7 @@ const usePostForm = (): UsePostForm => {
 
     addNewPost(postFormData);
 
-    navigate("/posts");
+    navigate("/recipes");
   };
 
   const deleteTag = (thisTag: string): void => {
