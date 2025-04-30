@@ -5,7 +5,11 @@ import PostClient from "../PostClient";
 describe("Given the getPostsInfo method from PostClient class", () => {
   describe("When it's called", () => {
     test("The it should return following posts: 5-Minute Microwave Mug Cake, Microwave Scrambled Eggs and Microwave Mac and Cheese", async () => {
-      const expectedPosts = mapPostsDtoToPosts(microwaveRecipiesPostsDto);
+      const postsPerPage = 5;
+
+      const expectedPosts = mapPostsDtoToPosts(
+        microwaveRecipiesPostsDto.slice(0, postsPerPage),
+      );
 
       const postClient = new PostClient();
       const postsInfo = await postClient.getPostsInfo();
@@ -15,7 +19,7 @@ describe("Given the getPostsInfo method from PostClient class", () => {
       expect(posts).toStrictEqual(expectedPosts);
     });
 
-    test("Then it should return 3 as total number of posts", async () => {
+    test("Then it should return 10 as total number of posts", async () => {
       const expectedPostsTotal = mapPostsDtoToPosts(
         microwaveRecipiesPostsDto,
       ).length;

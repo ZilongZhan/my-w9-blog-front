@@ -1,15 +1,15 @@
 import { useEffect } from "react";
+import { useSearchParams } from "react-router";
 import usePosts from "../../hooks/usePosts";
 import PostsList from "../../components/PostsList/PostsList";
 import "./PostsPage.css";
 import Paginator from "../../../components/Paginator/Paginator";
-import { useParams } from "react-router";
 
 const PostsPage: React.FC = () => {
   const { posts, postsTotal, loadPostsInfo } = usePosts();
-  const { currentPage } = useParams();
+  const [page] = useSearchParams();
 
-  const pageNumber = Number(currentPage ?? 1);
+  const pageNumber = Number(page.get("page")) || 1;
 
   useEffect(() => {
     loadPostsInfo(pageNumber);

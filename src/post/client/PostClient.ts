@@ -11,6 +11,10 @@ class PostClient implements PostClientStructure {
       `${this.apiUrl}/posts?pageNumber=${pageNumber}`,
     );
 
+    if (!response.ok) {
+      throw new Error("Error fetching posts");
+    }
+
     const { posts: postsDto, postsTotal } =
       (await response.json()) as PostsInfoDto;
 
@@ -29,9 +33,13 @@ class PostClient implements PostClientStructure {
       body: JSON.stringify(postFormData),
     });
 
-    const newPost = (await response.json()) as PostDto;
+    if (!response.ok) {
+      throw new Error("Error creating post");
+    }
 
-    return mapPostDtoToPost(newPost);
+    const { post } = (await response.json()) as { post: PostDto };
+
+    return mapPostDtoToPost(post);
   };
 }
 

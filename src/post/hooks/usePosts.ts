@@ -25,7 +25,7 @@ const usePosts = (): PostsContextStructure => {
 
     setPostsInfo(({ posts, postsTotal }) => ({
       posts: [...posts, post],
-      postsTotal: postsTotal,
+      postsTotal,
     }));
   };
 
