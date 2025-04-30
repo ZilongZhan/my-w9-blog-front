@@ -4,7 +4,7 @@ import { costillitasLekuePostFormData } from "../../fixtures";
 import PostClient from "../PostClient";
 
 describe("Given the addPost method from PostClient", () => {
-  describe("When it receives the 'Pork ribs with green pepper and spring garlic' post form reciepe", () => {
+  describe("When it receives the 'Pork ribs with green pepper and spring garlic' post form recipe", () => {
     test("Then it should return the 'Pork ribs with green pepper and spring garlic' post reciepe", async () => {
       const post = mapPostDtoToPost(costillitasLekuePostDto);
 

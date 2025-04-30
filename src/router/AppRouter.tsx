@@ -11,7 +11,7 @@ const AppRouter: React.FC<PropsWithChildren> = ({ children }) => {
       <Route path="/" element={children ?? <App />}>
         <Route index element={<Navigate to={"/recipes"} />} />
         <Route path="recipes" element={<PostsPage />} />
-        <Route path="recipes/:currentPage" element={<PostsPage />} />
+        <Route path="recipes?page=value" element={<PostsPage />} />
         <Route path="add-recipe" element={<PostFormPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>

@@ -17,7 +17,7 @@ const Paginator: React.FC<PaginatorProps> = ({ pageNumber, postsTotal }) => {
   const isLastPage = pageNumber === pagesTotal;
 
   const goToPage = (pageNumber: number): void => {
-    navigate(`/recipes/${pageNumber}`);
+    navigate(`/recipes?page=${pageNumber}`);
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
