@@ -1,4 +1,5 @@
 import Button from "../../../components/Button/Button";
+import usePostsProvider from "../../hooks/usePostsProvider";
 import { Post } from "../../types";
 import "./PostCard.css";
 
@@ -7,8 +8,10 @@ interface PostCardProps {
 }
 
 const PostCard: React.FC<PostCardProps> = ({
-  post: { title, publishDate, author, imageUrl, imageAlt, content, tags },
+  post: { id, title, publishDate, author, imageUrl, imageAlt, content, tags },
 }) => {
+  const { deletePost } = usePostsProvider();
+
   const formattedDate = new Intl.DateTimeFormat("en-US", {
     year: "numeric",
     month: "long",
@@ -18,7 +21,9 @@ const PostCard: React.FC<PostCardProps> = ({
   const wordsLimit = 100;
   const contentPreview = content.split(" ").slice(0, wordsLimit).join(" ");
 
-  const handleDelete = (): void => {};
+  const handleDelete = (): void => {
+    deletePost(id);
+  };
 
   return (
     <article className="post">
