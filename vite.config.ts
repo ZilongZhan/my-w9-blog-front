@@ -13,12 +13,11 @@ export default defineConfig({
       provider: "v8",
       include: ["**/*.tsx", "**/*.ts"],
       exclude: [
-        "main.tsx",
+        "src/main.tsx",
         "**/*.d.ts",
         "**/types.ts",
         "**/App.tsx",
         "**/*.config.*",
-        "**/main.tsx",
       ],
       reportsDirectory: "coverage",
     },

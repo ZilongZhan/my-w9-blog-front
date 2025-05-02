@@ -7,6 +7,10 @@ class PostClient implements PostClientStructure {
   private apiUrl = import.meta.env.VITE_API_URL;
 
   public getPostsInfo = async (pageNumber = 1): Promise<PostsInfo> => {
+    if (pageNumber < 1) {
+      throw new Error("Invalid page number: Cannot be less than 1");
+    }
+
     const response = await fetch(
       `${this.apiUrl}/posts?pageNumber=${pageNumber}`,
     );

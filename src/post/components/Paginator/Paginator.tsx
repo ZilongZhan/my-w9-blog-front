@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import "./Paginator.css";
-import Button from "../Button/Button";
+import Button from "../../../components/Button/Button";
 
 interface PaginatorProps {
   pageNumber: number;
