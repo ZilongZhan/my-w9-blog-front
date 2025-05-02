@@ -1,3 +1,4 @@
+import Button from "../../../components/Button/Button";
 import { Post } from "../../types";
 import "./PostCard.css";
 
@@ -17,8 +18,16 @@ const PostCard: React.FC<PostCardProps> = ({
   const wordsLimit = 100;
   const contentPreview = content.split(" ").slice(0, wordsLimit).join(" ");
 
+  const handleDelete = (): void => {};
+
   return (
     <article className="post">
+      <Button
+        modifier="delete"
+        action={handleDelete}
+        children="✖"
+        aria-label="Delete recipe"
+      />
       <img className="post__image" src={imageUrl} alt={imageAlt} />
       <div>
         <h3 className="post__title">{title}</h3>
