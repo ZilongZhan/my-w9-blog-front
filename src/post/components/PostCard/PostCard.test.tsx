@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import PostCard from "./PostCard";
 import { macAndCheese } from "../../fixtures";
+import PostsContextProvider from "../../context/PostsContextProvider";
 
 describe("Given the PostCard component", () => {
   describe("When it receives a mac and cheese post", () => {
@@ -47,6 +48,20 @@ describe("Given the PostCard component", () => {
       const postPublishDate = screen.getByText(/april 3, 2025/i);
 
       expect(postPublishDate).toBeInTheDocument();
+    });
+
+    test("Then it should show a delete recipe button", () => {
+      const buttonText = /delete recipe/i;
+
+      render(<PostCard post={macAndCheese} />, {
+        wrapper: PostsContextProvider,
+      });
+
+      const deleteRecipeButton = screen.getByRole("button", {
+        name: buttonText,
+      });
+
+      expect(deleteRecipeButton).toBeInTheDocument();
     });
   });
 });
