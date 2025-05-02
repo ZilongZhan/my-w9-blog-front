@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Paginator from "./Paginator";
-import AllContextsProvider from "../../test-utils/AllContextsProvider";
+import AllContextsProvider from "../../../test-utils/AllContextsProvider";
 
 describe("Given the Paginator component", () => {
   const postsTotal = 15;

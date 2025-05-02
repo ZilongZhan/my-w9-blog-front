@@ -28,8 +28,12 @@ export const handlers = [
       pages.push(microwaveRecipiesPostsDto.slice(postsCount, postsCount + 5));
     }
 
+    const doesPageExist = pageNumber <= pages.length;
+
+    const posts = doesPageExist ? pages[pageNumber - 1] : [];
+
     return HttpResponse.json({
-      posts: pages[pageNumber - 1],
+      posts,
       postsTotal,
     });
   }),

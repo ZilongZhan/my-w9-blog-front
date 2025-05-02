@@ -71,7 +71,11 @@ const usePostForm = (): UsePostForm => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
-    addNewPost(postFormData);
+    try {
+      addNewPost(postFormData);
+    } catch {
+      throw new Error("Error creating new post");
+    }
 
     navigate("/recipes");
   };

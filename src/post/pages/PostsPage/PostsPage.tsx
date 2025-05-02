@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router";
 import usePosts from "../../hooks/usePosts";
 import PostsList from "../../components/PostsList/PostsList";
 import "./PostsPage.css";
-import Paginator from "../../../components/Paginator/Paginator";
+import Paginator from "../../components/Paginator/Paginator";
 
 const PostsPage: React.FC = () => {
   const { posts, postsTotal, loadPostsInfo } = usePosts();
