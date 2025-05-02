@@ -18,19 +18,20 @@ export const handlers = [
 
     const postsTotal = microwaveRecipiesPostsDto.length;
 
-    if (pageNumber === 1) {
-      const posts = microwaveRecipiesPostsDto.slice(0, 5);
+    const pages = [];
 
-      return HttpResponse.json({ posts, postsTotal });
+    for (
+      let postsCount = 0;
+      postsCount < microwaveRecipiesPostsDto.length;
+      postsCount += 5
+    ) {
+      pages.push(microwaveRecipiesPostsDto.slice(postsCount, postsCount + 5));
     }
 
-    if (pageNumber === 2) {
-      const posts = microwaveRecipiesPostsDto.slice(6, 10);
-
-      return HttpResponse.json({ posts, postsTotal });
-    }
-
-    return HttpResponse.json({ posts: [], postsTotal: 0 });
+    return HttpResponse.json({
+      posts: pages[pageNumber - 1],
+      postsTotal,
+    });
   }),
 
   http.post(`${apiUrl}/posts`, () => {
