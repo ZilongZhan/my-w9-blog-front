@@ -4,6 +4,8 @@ import { MemoryRouter } from "react-router";
 import Layout from "./Layout";
 import AppTestWrapper from "../../test-utils/AppTestWrapper";
 
+window.scrollTo = vitest.fn();
+
 describe("Given the Layout component", () => {
   describe("When it renders", () => {
     test("Then it should show 'Rice Cooking' as heading level 1", () => {
