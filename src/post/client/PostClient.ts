@@ -1,7 +1,7 @@
 import { mapPostDtoToPost, mapPostsDtoToPosts } from "../dto/mappers";
-import { PostDto, PostsInfoDto } from "../dto/types";
+import { PostsInfoDto } from "../dto/types";
 import { Post, PostFormData, PostsInfo } from "../types";
-import { PostClientStructure } from "./types";
+import { PostClientStructure, PostResponse } from "./types";
 
 class PostClient implements PostClientStructure {
   private apiUrl = import.meta.env.VITE_API_URL;
@@ -41,9 +41,23 @@ class PostClient implements PostClientStructure {
       throw new Error("Error creating post");
     }
 
-    const { post } = (await response.json()) as { post: PostDto };
+    const { post } = (await response.json()) as PostResponse;
 
     return mapPostDtoToPost(post);
+  };
+
+  public deletePostById = async (postId: string): Promise<Post> => {
+    const response = await fetch(`${this.apiUrl}/posts/${postId}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error("Error deleting post");
+    }
+
+    const { post: PostDto } = (await response.json()) as PostResponse;
+
+    return mapPostDtoToPost(PostDto);
   };
 }
 

@@ -1,8 +1,11 @@
 import { http, HttpResponse } from "msw";
 import {
   costillitasLekuePostDto,
+  microwaveMacAndCheesePostDto,
   microwaveRecipiesPostsDto,
 } from "../post/dto/fixturesDto";
+import { PostsInfoDto } from "../post/dto/types";
+import { PostResponse } from "../post/client/types";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -32,7 +35,7 @@ export const handlers = [
 
     const posts = doesPageExist ? pages[pageNumber - 1] : [];
 
-    return HttpResponse.json({
+    return HttpResponse.json<PostsInfoDto>({
       posts,
       postsTotal,
     });
@@ -40,5 +43,11 @@ export const handlers = [
 
   http.post(`${apiUrl}/posts`, () => {
     return HttpResponse.json({ post: costillitasLekuePostDto });
+  }),
+
+  http.delete(`${apiUrl}/posts/${microwaveMacAndCheesePostDto._id}`, () => {
+    return HttpResponse.json<PostResponse>({
+      post: microwaveMacAndCheesePostDto,
+    });
   }),
 ];
