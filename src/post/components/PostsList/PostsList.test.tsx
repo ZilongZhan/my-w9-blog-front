@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { chickenAndRice, fluffyPancakes, macAndCheese } from "../../fixtures";
 import PostsList from "./PostsList";
-import PostsContextProvider from "../../context/PostsContextProvider";
+import AllContextsProvider from "../../../test-utils/AllContextsProvider";
 
 describe("Given the PostsList component", () => {
   describe("When it renders with 'Chicken and Rice', 'Fluffy Pancakes' and `Mac and Cheese` recipies", () => {
@@ -11,7 +11,7 @@ describe("Given the PostsList component", () => {
       const expectedFluffyPancakes = fluffyPancakes.title;
       const expectedMacAndCheese = macAndCheese.title;
 
-      render(<PostsList posts={posts} />, { wrapper: PostsContextProvider });
+      render(<PostsList posts={posts} />, { wrapper: AllContextsProvider });
 
       const chickenAndRiceTitle = screen.getByRole("heading", {
         name: new RegExp(expectedChickenAndRiceTitle, "i"),

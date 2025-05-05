@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import PostCard from "./PostCard";
 import { macAndCheese } from "../../fixtures";
-import PostsContextProvider from "../../context/PostsContextProvider";
+import AllContextsProvider from "../../../test-utils/AllContextsProvider";
 
 describe("Given the PostCard component", () => {
   describe("When it receives a mac and cheese post", () => {
@@ -9,7 +9,7 @@ describe("Given the PostCard component", () => {
       const expectedTitle = /mac and cheese/i;
 
       render(<PostCard post={macAndCheese} />, {
-        wrapper: PostsContextProvider,
+        wrapper: AllContextsProvider,
       });
 
       const postTitle = screen.getByRole("heading", {
@@ -23,7 +23,7 @@ describe("Given the PostCard component", () => {
       const expectedImage = /creamy mac and cheese in a bowl/i;
 
       render(<PostCard post={macAndCheese} />, {
-        wrapper: PostsContextProvider,
+        wrapper: AllContextsProvider,
       });
 
       const postImage = screen.getByAltText(expectedImage);
@@ -39,7 +39,7 @@ describe("Given the PostCard component", () => {
         .join(" ");
 
       render(<PostCard post={macAndCheese} />, {
-        wrapper: PostsContextProvider,
+        wrapper: AllContextsProvider,
       });
 
       const postContent = screen.getByRole("paragraph");
@@ -50,7 +50,7 @@ describe("Given the PostCard component", () => {
 
     test("Then it should have been posted on April 16, 2025", () => {
       render(<PostCard post={macAndCheese} />, {
-        wrapper: PostsContextProvider,
+        wrapper: AllContextsProvider,
       });
 
       const postPublishDate = screen.getByText(/april 3, 2025/i);
@@ -62,7 +62,7 @@ describe("Given the PostCard component", () => {
       const buttonText = /delete recipe/i;
 
       render(<PostCard post={macAndCheese} />, {
-        wrapper: PostsContextProvider,
+        wrapper: AllContextsProvider,
       });
 
       const deleteRecipeButton = screen.getByRole("button", {
