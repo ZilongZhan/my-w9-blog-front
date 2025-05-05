@@ -32,7 +32,7 @@ export const microwaveMacAndCheesePostDto: PostDto = {
   tags: ["lunch", "comfort food", "microwave"],
   content:
     "Combine macaroni, water, and salt in a mug. Microwave until pasta is cooked. Stir in cheese and a splash of milk, microwave again until creamy.",
-  publishDate: "2025-04-23T12:00:00Z",
+  publishDate: "2025-04-28T18:00:00Z",
   author: "John Doe",
 };
 

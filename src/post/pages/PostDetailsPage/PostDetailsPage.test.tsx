@@ -35,4 +35,18 @@ describe("Given the PostDetailsPage component", () => {
       expect(pageTitle).toBeInTheDocument();
     });
   });
+
+  describe("When it doesn't receive an ID", () => {
+    test("Then it should show 'Post not available'", () => {
+      render(
+        <AppTestWrapper location={`/recipe`}>
+          <PostDetailsPage />
+        </AppTestWrapper>,
+      );
+
+      const pageMessage = screen.getByText(/post not available/i);
+
+      expect(pageMessage).toBeInTheDocument();
+    });
+  });
 });

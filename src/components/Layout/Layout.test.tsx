@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router";
 import Layout from "./Layout";
 import AppTestWrapper from "../../test-utils/AppTestWrapper";
+import { microwaveMacAndCheesePostDto } from "../../post/dto/fixturesDto";
 
 window.scrollTo = vitest.fn();
 
@@ -79,6 +80,33 @@ describe("Given the Layout component", () => {
       });
 
       expect(pageTitle).toBeInTheDocument();
+    });
+  });
+
+  describe("When it renders on recipes page and the user deletes Baked potato recipe", () => {
+    test("Then the Baked potato recipe should not appear anymore", async () => {
+      const user = userEvent.setup();
+
+      render(
+        <AppTestWrapper location="/recipes">
+          <Layout />
+        </AppTestWrapper>,
+      );
+
+      const deleteButton = await screen.findByRole("button", {
+        name: new RegExp(
+          `delete ${microwaveMacAndCheesePostDto.title} recipe`,
+          "i",
+        ),
+      });
+
+      await user.click(deleteButton);
+
+      const macAndCheeseRecipe = screen.queryByRole("heading", {
+        name: new RegExp(microwaveMacAndCheesePostDto.title, "i"),
+      });
+
+      expect(macAndCheeseRecipe).toBeNull();
     });
   });
 });
