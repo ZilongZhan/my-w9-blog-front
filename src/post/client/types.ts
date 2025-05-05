@@ -5,6 +5,7 @@ export interface PostClientStructure {
   getPostsInfo: () => Promise<PostsInfo>;
   addPost: (postFormData: PostFormData) => Promise<Post>;
   deletePostById: (postId: string) => Promise<Post>;
+  getPostById: (postId: string) => Promise<Post>;
 }
 
 export interface PostResponse {
