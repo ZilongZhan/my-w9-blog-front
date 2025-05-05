@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Button from "../../../components/Button/Button";
 import usePostsProvider from "../../hooks/usePostsProvider";
 import { Post } from "../../types";
@@ -34,12 +35,16 @@ const PostCard: React.FC<PostCardProps> = ({
         aria-label="Delete recipe"
       />
       <img className="post__image" src={imageUrl} alt={imageAlt} />
-      <div>
+      <div className="post-details">
         <h3 className="post__title">{title}</h3>
         <span>
-          {formattedDate} by {author}
+          <time dateTime={publishDate.toString()}>{formattedDate}</time> by{" "}
+          {author}
         </span>
         <p className="post__content post__content--preview">{contentPreview}</p>
+        <Link className="details-link" to={`/recipe/${id}`}>
+          See more...
+        </Link>
         <ul className="post__tags-list">
           {tags.map((tag) => (
             <li key={tag}>

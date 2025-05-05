@@ -35,14 +35,14 @@ describe("Given the getPostsInfo method from PostClient class", () => {
   });
 
   describe("When it receives -1 non valid page number", () => {
-    test("Then it should throw error with message 'Invalid page number: Cannot be less than 1'", () => {
+    test("Then it should throw error with message 'Invalid page number: Cannot be less than 1'", async () => {
       const pageNumber = -1;
 
       const getPostsInfo = async (): Promise<void> => {
         await postClient.getPostsInfo(pageNumber);
       };
 
-      expect(getPostsInfo).rejects.toThrow(
+      await expect(getPostsInfo).rejects.toThrow(
         "Invalid page number: Cannot be less than 1",
       );
     });

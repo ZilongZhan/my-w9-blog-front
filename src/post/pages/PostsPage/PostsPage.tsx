@@ -7,9 +7,9 @@ import usePostsProvider from "../../hooks/usePostsProvider";
 
 const PostsPage: React.FC = () => {
   const { posts, postsTotal, loadPostsInfo } = usePostsProvider();
-  const [page] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
-  const pageNumber = Number(page.get("page")) || 1;
+  const pageNumber = Number(searchParams.get("page")) || 1;
 
   useEffect(() => {
     loadPostsInfo(pageNumber);
