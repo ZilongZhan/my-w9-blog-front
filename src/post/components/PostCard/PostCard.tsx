@@ -36,7 +36,7 @@ const PostCard: React.FC<PostCardProps> = ({
         modifier="delete"
         action={handleDelete}
         children="✖"
-        aria-label="Delete recipe"
+        aria-label={`Delete ${title} recipe`}
       />
       <img
         className="post__image"

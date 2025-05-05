@@ -59,14 +59,12 @@ describe("Given the PostCard component", () => {
     });
 
     test("Then it should show a delete recipe button", () => {
-      const buttonText = /delete recipe/i;
-
       render(<PostCard post={macAndCheese} index={1} />, {
         wrapper: AllContextsProvider,
       });
 
       const deleteRecipeButton = screen.getByRole("button", {
-        name: buttonText,
+        name: new RegExp(`delete ${macAndCheese.title} recipe`, "i"),
       });
 
       expect(deleteRecipeButton).toBeInTheDocument();
