@@ -41,8 +41,14 @@ export const handlers = [
     });
   }),
 
+  http.get(`${apiUrl}/posts/${microwaveMacAndCheesePostDto._id}`, () => {
+    return HttpResponse.json<PostResponse>({
+      post: microwaveMacAndCheesePostDto,
+    });
+  }),
+
   http.post(`${apiUrl}/posts`, () => {
-    return HttpResponse.json({ post: costillitasLekuePostDto });
+    return HttpResponse.json<PostResponse>({ post: costillitasLekuePostDto });
   }),
 
   http.delete(`${apiUrl}/posts/${microwaveMacAndCheesePostDto._id}`, () => {
