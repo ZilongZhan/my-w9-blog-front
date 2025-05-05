@@ -39,7 +39,7 @@ const PostDetailsPage: React.FC = () => {
       <h2 className="page-title">{title}</h2>
       <time
         className="post-details__publish-date"
-        dateTime={publishDate.toString()}
+        dateTime={publishDate.toISOString()}
       >
         {formattedDate}
       </time>
