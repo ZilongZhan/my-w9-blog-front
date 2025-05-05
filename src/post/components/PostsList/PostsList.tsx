@@ -10,9 +10,9 @@ const PostsList: React.FC<PostsListProps> = ({ posts }) => {
   return (
     <div className="posts-container">
       <ul className="posts">
-        {posts.map((post) => (
+        {posts.map((post, index) => (
           <li key={post.id}>
-            <PostCard post={post} />
+            <PostCard post={post} index={index} />
           </li>
         ))}
       </ul>
