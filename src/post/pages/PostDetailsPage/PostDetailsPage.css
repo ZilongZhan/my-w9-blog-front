@@ -1,0 +1,17 @@
+.post-details__publish-date,
+.post-details__author {
+  font-weight: bold;
+}
+
+.post-details__image {
+  height: 250px;
+  object-fit: cover;
+
+  @media (width >= 500px) {
+    height: 500px;
+  }
+}
+
+.post-details__author {
+  align-self: flex-end;
+}

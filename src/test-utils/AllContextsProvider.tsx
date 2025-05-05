@@ -2,10 +2,16 @@ import { MemoryRouter } from "react-router";
 import { PropsWithChildren } from "react";
 import PostsContextProvider from "../post/context/PostsContextProvider";
 
-const AllContextsProvider: React.FC<PropsWithChildren> = ({ children }) => {
+interface AllContextsProviderProps {
+  initialEntries?: string[];
+}
+
+const AllContextsProvider: React.FC<
+  PropsWithChildren<AllContextsProviderProps>
+> = ({ children, initialEntries }) => {
   return (
     <PostsContextProvider>
-      <MemoryRouter>{children}</MemoryRouter>
+      <MemoryRouter initialEntries={initialEntries}>{children}</MemoryRouter>
     </PostsContextProvider>
   );
 };
