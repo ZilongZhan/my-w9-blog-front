@@ -6,6 +6,10 @@
   color: var(--main-black);
 }
 
+.page-indicators-list {
+  display: flex;
+}
+
 .page-indicator {
   padding: 5px 10px;
   display: inline-block;
@@ -13,5 +17,4 @@
 
 .page-indicator--current {
   font-weight: bold;
-  font-size: 1.2rem;
 }
